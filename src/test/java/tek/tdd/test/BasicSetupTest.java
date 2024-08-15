@@ -4,11 +4,12 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tek.tdd.base.UIBaseClass;
+import tek.tdd.page.HomePage;
 
 public class BasicSetupTest extends UIBaseClass {
 
     private void validateLogo(){
-        String actualLogoTest = getElementText(By.className("top-nav__logo"));
+        String actualLogoTest = getElementText(homePage.topLeftLogo);
         Assert.assertEquals(actualLogoTest,"TEKSCHOOL", "Logo text should match");
     }
 
@@ -20,7 +21,7 @@ public class BasicSetupTest extends UIBaseClass {
     @Test(testName = "Validate logo with Sign in link")
     public void testingLogoWithSignInLink(){
        validateLogo();
-        boolean isSignInLinkEnabled = isElementEnabled(By.id("signinLink"));
+        boolean isSignInLinkEnabled = isElementEnabled(homePage.singInLink);
         Assert.assertTrue(isSignInLinkEnabled,"Sign in Link should be Enabled");
 
     }

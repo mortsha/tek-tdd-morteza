@@ -22,15 +22,30 @@ public class SeleniumUtility extends BaseSetup {
     public WebElement waitToBeVisible(By locator){
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public WebElement waitToBeVisible(WebElement element){
+        return getWait().until(ExpectedConditions.visibilityOf(element));
+    }
 
     public String getElementText(By locator) {
         LOGGER.debug("Returning element text {} ", locator);
         return waitToBeVisible(locator).getText();
     }
 
+    public String getElementText(WebElement element){
+        LOGGER.debug("Returning element text {} ", element);
+        return waitToBeVisible(element).getText();
+    }
+
     public boolean isElementEnabled(By locator) {
+        LOGGER.debug("Checking element enable status {} ",locator);
       boolean isEnabled = waitToBeVisible(locator).isEnabled();
-        LOGGER.debug("Checking element {} is enable status {} ", locator,isEnabled);
+        LOGGER.debug("element is enabled status {} ",isEnabled);
+        return isEnabled;
+    }
+    public boolean isElementEnabled(WebElement element){
+        LOGGER.debug("Checking element enable status {} ",element);
+        boolean isEnabled = waitToBeVisible(element).isEnabled();
+        LOGGER.debug("element is enabled status {} ",isEnabled);
         return isEnabled;
     }
 }
