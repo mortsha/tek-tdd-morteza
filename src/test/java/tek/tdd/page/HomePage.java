@@ -19,4 +19,7 @@ public class HomePage extends SeleniumUtility {
 
     @FindBy(id = "signinLink")
     public WebElement singInLink;
+
+    @FindBy(id="accountLink")
+    public WebElement accountLink;
 }
