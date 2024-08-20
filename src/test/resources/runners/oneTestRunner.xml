@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Running just 1 Test">
+    <test name="Security Test">
+        <classes>
+            <class name="tek.tdd.test.SecurityTest"/>
+        </classes>
+    </test>
+</suite>

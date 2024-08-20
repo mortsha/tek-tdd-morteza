@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Running some test methods">
+    <test name="Running 1 method">
+        <classes>
+            <class name="tek.tdd.test.SecurityTest">
+                <methods>
+                    <include name="testSignInCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
