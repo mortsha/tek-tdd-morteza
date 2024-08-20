@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import tek.tdd.page.HomePage;
+import tek.tdd.page.ProfilePage;
+import tek.tdd.page.SignUpPage;
 import tek.tdd.page.SingInPage;
 import tek.tdd.utility.SeleniumUtility;
 
@@ -14,6 +16,8 @@ public class UIBaseClass extends SeleniumUtility {
 
     public HomePage homePage;
     public SingInPage singInPage;
+    public SignUpPage signUpPage;
+    public ProfilePage profilePage;
 
     @BeforeMethod
     public void setupTest(){
@@ -21,6 +25,8 @@ public class UIBaseClass extends SeleniumUtility {
         setupBrowser();
         homePage = new HomePage();
         singInPage = new SingInPage();
+        signUpPage = new SignUpPage();
+        profilePage = new ProfilePage();
     }
 
     @AfterMethod

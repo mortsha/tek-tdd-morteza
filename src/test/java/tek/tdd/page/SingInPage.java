@@ -5,8 +5,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tek.tdd.utility.SeleniumUtility;
 
-import javax.sound.midi.MidiDevice;
-
 public class SingInPage extends SeleniumUtility {
 
     public SingInPage(){
@@ -24,6 +22,9 @@ public class SingInPage extends SeleniumUtility {
 
     @FindBy(className = "error")
     public WebElement errorMessage;
+
+    @FindBy(id="newAccountBtn")
+    public WebElement createNewAccountButton;
 
     public void doSignIn(String email, String password){
         sendText(emailInput,email);
