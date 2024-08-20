@@ -19,6 +19,16 @@ public class SingInPage extends SeleniumUtility {
     @FindBy(id = "password")
     public WebElement passwordInput;
 
-    @FindBy(xpath = "//button[text()='Login']")
+    @FindBy(id = "loginBtn")
     public WebElement loginButton;
+
+    @FindBy(className = "error")
+    public WebElement errorMessage;
+
+    public void doSignIn(String email, String password){
+        sendText(emailInput,email);
+        sendText(passwordInput,password);
+        clickOnElement(loginButton);
+    }
+
 }
