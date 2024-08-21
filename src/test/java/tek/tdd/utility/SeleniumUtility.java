@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import tek.tdd.base.BaseSetup;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SeleniumUtility extends BaseSetup {
 
@@ -72,4 +73,5 @@ public class SeleniumUtility extends BaseSetup {
         LOGGER.debug("element is displayed status {} ", isDisplayed);
         return isDisplayed;
     }
+
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tek.tdd.utility.SeleniumUtility;
 
+import java.util.List;
+
 public class SignUpPage extends SeleniumUtility {
 
     public SignUpPage() {
@@ -29,6 +31,8 @@ public class SignUpPage extends SeleniumUtility {
     @FindBy(className = "error")
     public WebElement errorMessage;
 
+    @FindBy(className = "error")
+    public List<WebElement> allErrorFieldsMessage;
 
 
     public void fillUpCreateAccountForm(String name, String email, String password){
