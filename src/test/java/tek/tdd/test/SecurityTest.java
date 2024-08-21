@@ -1,5 +1,6 @@
 package tek.tdd.test;
 
+import com.aventstack.extentreports.service.ExtentTestManager;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,6 +12,9 @@ public class SecurityTest extends UIBaseClass {
     @Test(testName = "UserStory1-PositiveSignIn")
     public void testSignInCredentials() {
         clickOnElement(homePage.singInLink);
+
+        information("Sign in with credentials");
+
         singInPage.doSignIn("mory123@gmail.com", "Mory@123");
 
         boolean isAccountEnabled = isElementDisplayed(homePage.accountLink);
