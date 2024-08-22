@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class MoreAboutDataTable {
+public class MoreAboutDataTableTest {
 
     @Test(dataProvider = "testWithObject" )
     public void someTesting(String name,Integer expectedLength) {
@@ -13,22 +13,20 @@ public class MoreAboutDataTable {
 
     @DataProvider(name = "testWithObject")
     public Object[][] testDataWithObject(){
-        Object[][] data = {
+        return new Object[][]{
                 {"Mor",3},
                 {"Steve",5},
-                {"Nooya",5}
+                {"Noo",5}
         };
-        return data;
     }
 
 
     @DataProvider(name = "testWithCustomPOJO")
     public Person[] testWithCustomPOJO() {
-        Person[] data = {
+        return new Person[]{
                 new Person("Mori", 4),
                 new Person("Mo", 2)
         };
-        return data;
     }
 
 

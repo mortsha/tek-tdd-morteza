@@ -1,6 +1,5 @@
 package tek.tdd.base;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.service.ExtentTestManager;
 import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;

@@ -4,10 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tek.tdd.base.UIBaseClass;
-import tek.tdd.page.SignUpPage;
 import tek.tdd.utility.DataGenerator;
-
-import java.util.Arrays;
 import java.util.List;
 
 public class CreateAccountTest extends UIBaseClass {

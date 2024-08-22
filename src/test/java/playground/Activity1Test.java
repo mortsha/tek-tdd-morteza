@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Activity1 {
+public class Activity1Test {
 
     public String getFullName(String firstName, String lastName) {
         if (firstName == null || lastName == null)
@@ -29,13 +29,12 @@ public class Activity1 {
 
     @DataProvider(name = "positiveTestData")
     private String[][] positiveTestData() {
-        String[][] data = {
-                {"morteza", "sharifi", "SHARIFI, Morteza"},
+        return new String[][]{
+                {"morteza", "Sharifi", "SHARIFI, Morteza"},
                 {"steve", "bon", "BON, Steve"},
                 {"john", "Dep", "DEP, John"},
 
         };
-        return data;
     }
 
 
