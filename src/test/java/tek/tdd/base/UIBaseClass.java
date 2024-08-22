@@ -49,4 +49,10 @@ public class UIBaseClass extends SeleniumUtility {
         LOGGER.info("Running after each tes and quite browser");
         quitBrowser();
     }
+
+    public void validCredentialSignIn(){
+        information("Sign in to account with Credentials");
+        clickOnElement(homePage.singInLink);
+        singInPage.doSignIn("mory123@gmail.com", "Mory@123");
+    }
 }

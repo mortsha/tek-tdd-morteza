@@ -78,4 +78,7 @@ public class SeleniumUtility extends BaseSetup {
     public void information(String info) {
         ExtentTestManager.getTest().info(info);
     }
+    public String getElementValue(WebElement element){
+        return waitToBeVisible(element).getAttribute("value");
+    }
 }

@@ -13,4 +13,16 @@ public class ProfilePage extends UIBaseClass {
 
     @FindBy(className = "account__information-email")
     public WebElement emailCreatedText;
+
+    @FindBy(id = "nameInput")
+    public WebElement nameInput;
+
+    @FindBy(id="personalPhoneInput")
+    public WebElement phoneNumberInput;
+
+    @FindBy(xpath = "//button[text()='Update']")
+    public WebElement updateButton;
+
+    @FindBy(className = "Toastify__toast-body")
+    public WebElement toastMessage;
 }
