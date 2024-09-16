@@ -45,7 +45,7 @@ public class UIBaseClass extends SeleniumUtility {
 
             ExtentTestManager.getTest().fail("Test failed Taking screen shot", MediaEntityBuilder.createScreenCaptureFromBase64String(shot).build());
         }
-        LOGGER.info("Running after each tes and quite browser");
+        LOGGER.info("Running after each test and quite browser");
         quitBrowser();
     }
 
