@@ -40,13 +40,13 @@ public class TokenGenerationTest extends ApiTestsBase {
         String token = response.body().jsonPath().getString("token");
         Assert.assertNotNull(token);
 
-        String actualAccountType =  response.body().jsonPath().getString("accountType");
-        Assert.assertEquals(actualAccountType,"CSR","account type should match");
+        String actualAccountType = response.body().jsonPath().getString("accountType");
+        Assert.assertEquals(actualAccountType, "CSR", "account type should match");
 
     }
 
     @Test(dataProvider = "negativeCredentials")
-    public void negativeGenerateToken(String username,String password,int status,String expectedErrorMessage){
+    public void negativeGenerateToken(String username, String password, int status, String expectedErrorMessage) {
         RequestSpecification request = getDefaultRequest();
         request.body(requestBodyUsers(username, password));
         Response response = request.when().post(EndPoints.GENERATE_TOKEN.getValue());
@@ -55,16 +55,13 @@ public class TokenGenerationTest extends ApiTestsBase {
 
         String actualErrorMessage = response.body().jsonPath().getString("errorMessage");
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage, "Error message should match");
-
-
-
     }
 
     @DataProvider
-    private Object[][] negativeCredentials(){
+    private Object[][] negativeCredentials() {
         return new Object[][]{
-                {"supervisor1", "tek_supervisor",404,"User supervisor1 not found"},
-                {"supervisor", "tek_super",400,"Password not matched"},
+                {"supervisor1", "tek_supervisor", 404, "User supervisor1 not found"},
+                {"supervisor", "tek_super", 400, "Password not matched"},
         };
     }
 
