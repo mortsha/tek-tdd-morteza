@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,6 +42,7 @@ public abstract class BaseSetup {
             // get API Base url and setup restAssured
             String baseURL = properties.getProperty("api.url");
             RestAssured.baseURI = baseURL;
+            LOGGER.info("Opening api url {} ", baseURL);
 
         } catch (IOException ioException) {
             LOGGER.error("Config file error with message {}", ioException.getMessage());
