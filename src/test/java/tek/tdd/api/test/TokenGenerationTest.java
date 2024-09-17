@@ -15,7 +15,7 @@ public class TokenGenerationTest extends ApiTestsBase {
     public void generateTokenWithSupervisor(){
         RequestSpecification request =  getDefaultRequest();
         request.body(RequestBody.supervisorUserRequest());
-        Response response = request.when().post("/api/token");
+        Response response = request.when().post(Methods.apiToken);
         response.then().statusCode(200);
         response.prettyPrint();
     }
