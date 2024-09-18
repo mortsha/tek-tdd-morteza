@@ -8,11 +8,13 @@ import tek.tdd.api.models.enums.GenderType;
 import tek.tdd.api.models.enums.MaritalStatusType;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class CreateAccountResponse {
     private int id;
     private String email;
@@ -22,5 +24,5 @@ public class CreateAccountResponse {
     private GenderType gender;
     private MaritalStatusType maritalStatus;
     private String employmentStatus;
-    private Date[] dateOfBirth;
+    private int[] dateOfBirth;
 }

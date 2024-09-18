@@ -42,5 +42,14 @@ public class GetPrimaryAccountTest extends ApiTestsBase {
         extentInfo("Getting account primary with invalid data " + response.asPrettyString());
     }
 
+    @Test
+    public void getAccountWithAuth(){
+        int id = 228;
+        String token = getTokenWithSupervisor();
+        Response response = getDefaultRequest().header("Authorization",token).queryParam("primaryPersonId",id)
+                .when().get(EndPoints.GET_ACCOUNT.getValue())
+                .then().statusCode(200).extract().response();
 
+        response.prettyPrint();
+    }
 }

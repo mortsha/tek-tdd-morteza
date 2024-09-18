@@ -12,6 +12,7 @@ import org.testng.annotations.Listeners;
 import tek.tdd.api.models.request.CreateAccountRequest;
 import tek.tdd.api.models.enums.EndPoints;
 import tek.tdd.api.models.request.TokenRequest;
+import tek.tdd.api.models.response.CreateAccountResponse;
 import tek.tdd.api.models.response.TokenResponse;
 import tek.tdd.utility.DataGenerator;
 
@@ -58,7 +59,18 @@ public class ApiTestsBase extends BaseSetup {
 
     public CreateAccountRequest createAccountData() {
         String firstName = DataGenerator.getFirstName();
-        CreateAccountRequest createAccount = new CreateAccountRequest();
+       return   CreateAccountRequest.builder()
+                .email(DataGenerator.emailGenerator(firstName))
+                .firstName(firstName)
+                .lastName(DataGenerator.getLastName())
+                .title(DataGenerator.getPrefix())
+                .gender(DataGenerator.getGender())
+                .maritalStatus(DataGenerator.getMaritalStatus())
+                .employmentStatus(DataGenerator.getEmploymentStatus())
+                .dateOfBirth(DataGenerator.getDOB())
+                .build();
+
+       /* CreateAccountRequest createAccount = new CreateAccountRequest();
         createAccount.setFirstName(firstName);
         createAccount.setEmail(DataGenerator.emailGenerator(firstName));
         createAccount.setLastName(DataGenerator.getLastName());
@@ -66,8 +78,7 @@ public class ApiTestsBase extends BaseSetup {
         createAccount.setGender(DataGenerator.getGender());
         createAccount.setMaritalStatus(DataGenerator.getMaritalStatus());
         createAccount.setEmploymentStatus(DataGenerator.getEmploymentStatus());
-        createAccount.setDateOfBirth(DataGenerator.getDOB());
-        return createAccount;
+        createAccount.setDateOfBirth(DataGenerator.getDOB());*/
     }
 
 }
