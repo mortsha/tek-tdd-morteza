@@ -1,9 +1,11 @@
-package tek.tdd.api.models;
+package tek.tdd.api.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tek.tdd.api.models.enums.GenderType;
+import tek.tdd.api.models.enums.MaritalStatusType;
 
 import java.util.Date;
 

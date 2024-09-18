@@ -9,10 +9,10 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Listeners;
-import tek.tdd.api.models.CreateAccountRequest;
-import tek.tdd.api.models.EndPoints;
-import tek.tdd.api.models.TokenRequest;
-import tek.tdd.api.models.TokenResponse;
+import tek.tdd.api.models.request.CreateAccountRequest;
+import tek.tdd.api.models.enums.EndPoints;
+import tek.tdd.api.models.request.TokenRequest;
+import tek.tdd.api.models.response.TokenResponse;
 import tek.tdd.utility.DataGenerator;
 
 import java.util.HashMap;

@@ -1,9 +1,10 @@
-package tek.tdd.api.models;
+package tek.tdd.api.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tek.tdd.api.models.enums.AccountType;
 
 import java.util.Date;
 

@@ -5,9 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tek.tdd.api.models.CreateAccountRequest;
-import tek.tdd.api.models.CreateAccountResponse;
-import tek.tdd.api.models.EndPoints;
+import tek.tdd.api.models.request.CreateAccountRequest;
+import tek.tdd.api.models.response.CreateAccountResponse;
+import tek.tdd.api.models.enums.EndPoints;
 import tek.tdd.base.ApiTestsBase;
 
 public class CreateAccountTest extends ApiTestsBase {

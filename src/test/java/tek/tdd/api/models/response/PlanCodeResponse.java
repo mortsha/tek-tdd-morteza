@@ -1,4 +1,4 @@
-package tek.tdd.api.models;
+package tek.tdd.api.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

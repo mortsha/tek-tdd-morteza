@@ -8,11 +8,11 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import tek.tdd.api.models.AccountType;
-import tek.tdd.api.models.TokenRequest;
-import tek.tdd.api.models.TokenResponse;
+import tek.tdd.api.models.enums.AccountType;
+import tek.tdd.api.models.request.TokenRequest;
+import tek.tdd.api.models.response.TokenResponse;
 import tek.tdd.base.ApiTestsBase;
-import tek.tdd.api.models.EndPoints;
+import tek.tdd.api.models.enums.EndPoints;
 
 public class TokenGenerationTest extends ApiTestsBase {
     private static final Logger LOGGER = LogManager.getLogger(TokenGenerationTest.class);
