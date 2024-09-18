@@ -8,7 +8,6 @@ import tek.tdd.utility.DataGenerator;
 import java.util.List;
 
 public class CreateAccountTest extends UIBaseClass {
-
     public void navigateToCreateNewAccountPage() {
         clickOnElement(homePage.singInLink);
         clickOnElement(singInPage.createNewAccountButton);

@@ -6,7 +6,6 @@ import tek.tdd.base.UIBaseClass;
 import tek.tdd.utility.DataGenerator;
 
 public class AccountProfileTest extends UIBaseClass {
-
     @Test(testName = "userStory5")
     public void updatePersonalInfo(){
         validCredentialSignIn();
