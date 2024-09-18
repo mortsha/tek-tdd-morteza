@@ -10,8 +10,6 @@ import tek.tdd.api.models.CreateAccountResponse;
 import tek.tdd.api.models.EndPoints;
 import tek.tdd.base.ApiTestsBase;
 
-import java.util.List;
-
 public class CreateAccountTest extends ApiTestsBase {
     private static final Logger LOGGER = LogManager.getLogger(CreateAccountTest.class);
 
