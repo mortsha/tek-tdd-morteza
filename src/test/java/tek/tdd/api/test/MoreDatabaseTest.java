@@ -42,7 +42,6 @@ public class MoreDatabaseTest extends ApiTestsBase {
         String query = "select * from primary_person order by id desc limit 5;";
         ResultSet result = dbUtility.executeQuery(query);
 
-        ResultSetMetaData metaData = result.getMetaData();
         List<AccountResponse> data = new ArrayList<>();
         while(result.next()){
             AccountResponse accountResponse = new AccountResponse();

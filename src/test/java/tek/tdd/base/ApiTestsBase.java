@@ -54,4 +54,17 @@ public class ApiTestsBase extends BaseSetup {
         return ("Bearer ") + token.getToken();
     }
 
+    public String getTokenWithUserReadOnly(){
+        TokenRequest request = new TokenRequest("operator_readonly", "Tek4u2024");
+
+        Response response = getDefaultRequest().body(request).when().post(EndPoints.POST_GENERATE_TOKEN.getValue())
+                .then().statusCode(200)
+                .extract().response();
+        LOGGER.info("Getting token with readOnly user " + response.prettyPrint());
+        extentInfo(response.asPrettyString());
+
+        TokenResponse token = response.body().jsonPath().getObject("", TokenResponse.class);
+        return ("Bearer ") + token.getToken();
+    }
+
 }
