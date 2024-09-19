@@ -97,4 +97,8 @@ public abstract class BaseSetup {
     public WebDriver getDriver() {
         return driver;
     }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
+    }
 }

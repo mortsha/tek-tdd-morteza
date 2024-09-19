@@ -12,7 +12,6 @@ import org.testng.annotations.Listeners;
 import tek.tdd.api.models.request.CreateAccountRequest;
 import tek.tdd.api.models.enums.EndPoints;
 import tek.tdd.api.models.request.TokenRequest;
-import tek.tdd.api.models.response.CreateAccountResponse;
 import tek.tdd.api.models.response.TokenResponse;
 import tek.tdd.utility.DataGenerator;
 
@@ -42,8 +41,6 @@ public class ApiTestsBase extends BaseSetup {
         ExtentTestManager.getTest().info(value);
     }
 
-    public static TokenRequest tokenRequest = new TokenRequest("supervisor", "tek_supervisor");
-
     public String getTokenWithSupervisor() {
         TokenRequest request = new TokenRequest("supervisor", "tek_supervisor");
 
@@ -55,30 +52,6 @@ public class ApiTestsBase extends BaseSetup {
 
         TokenResponse token = response.body().jsonPath().getObject("", TokenResponse.class);
         return ("Bearer ") + token.getToken();
-    }
-
-    public CreateAccountRequest createAccountData() {
-        String firstName = DataGenerator.getFirstName();
-       return   CreateAccountRequest.builder()
-                .email(DataGenerator.emailGenerator(firstName))
-                .firstName(firstName)
-                .lastName(DataGenerator.getLastName())
-                .title(DataGenerator.getPrefix())
-                .gender(DataGenerator.getGender())
-                .maritalStatus(DataGenerator.getMaritalStatus())
-                .employmentStatus(DataGenerator.getEmploymentStatus())
-                .dateOfBirth(DataGenerator.getDOB())
-                .build();
-
-       /* CreateAccountRequest createAccount = new CreateAccountRequest();
-        createAccount.setFirstName(firstName);
-        createAccount.setEmail(DataGenerator.emailGenerator(firstName));
-        createAccount.setLastName(DataGenerator.getLastName());
-        createAccount.setTitle(DataGenerator.getPrefix());
-        createAccount.setGender(DataGenerator.getGender());
-        createAccount.setMaritalStatus(DataGenerator.getMaritalStatus());
-        createAccount.setEmploymentStatus(DataGenerator.getEmploymentStatus());
-        createAccount.setDateOfBirth(DataGenerator.getDOB());*/
     }
 
 }

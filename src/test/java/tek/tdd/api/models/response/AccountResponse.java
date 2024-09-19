@@ -1,21 +1,16 @@
 package tek.tdd.api.models.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import tek.tdd.api.models.enums.GenderType;
 import tek.tdd.api.models.enums.MaritalStatusType;
-
-import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class CreateAccountResponse {
+@ToString
+public class AccountResponse {
     private int id;
     private String email;
     private String title;
@@ -24,5 +19,6 @@ public class CreateAccountResponse {
     private GenderType gender;
     private MaritalStatusType maritalStatus;
     private String employmentStatus;
+    @JsonIgnore
     private int[] dateOfBirth;
 }

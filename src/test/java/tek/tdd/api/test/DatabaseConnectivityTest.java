@@ -6,13 +6,14 @@ import java.sql.*;
 
 public class DatabaseConnectivityTest {
 
+    // step 1: create connection
+    String url = "jdbc:mysql://tek-database-server.mysql.database.azure.com:3306/tek_insurance_app";
+    String username = "tek_student_user";
+    String password = "FEB_2024";
 
     @Test
     public void databaseConnection() {
-        // step 1: create connection
-        String url = "jdbc:mysql://tek-database-server.mysql.database.azure.com:3306/tek_insurance_app";
-        String username = "tek_student_user";
-        String password = "FEB_2024";
+
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -38,13 +39,11 @@ public class DatabaseConnectivityTest {
     }
 
     @Test
-    public void findLastIdFromDB() {
-        String url = "jdbc:mysql://tek-database-server.mysql.database.azure.com:3306/tek_insurance_app";
-        String username = "tek_student_user";
-        String password = "FEB_2024";
+    public void getLatestPrimaryPersonAccount() throws SQLException {
         String query = "select * from primary_person order by id desc limit 1;";
+        Connection connection = null;
         try {
-            Connection connection = DriverManager.getConnection(url, username, password);
+           connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
 
@@ -54,7 +53,32 @@ public class DatabaseConnectivityTest {
             }
 
         } catch (SQLException exception) {
-            exception.printStackTrace();
+           throw new RuntimeException(exception.getMessage());
+        }finally {
+            if(connection!=null){
+                connection.close();
+            }
+        }
+    }
+
+    @Test
+    public void getLatestPrimaryPersonId() throws SQLException {
+        String query = "select max(id)  as idSelected from primary_person;";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(query);
+
+            result.next();
+            System.out.println(result.getInt("idSelected"));
+
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception.getMessage());
+        }finally {
+            if(connection!=null){
+                connection.close();
+            }
         }
     }
 
