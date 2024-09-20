@@ -59,5 +59,14 @@ public class ApiTestsBase extends BaseSetup {
                 .extract().response().body().jsonPath().getObject("", TokenResponse.class).getToken();
 
     }
+    public RequestSpecification authenticateRequest(TokenRequest request){
+        extentInfo(request.toString());
+        String token =  getDefaultRequest().body(request)
+                .when()
+                .post(EndPoints.POST_GENERATE_TOKEN.getValue())
+                .then()
+                .statusCode(200).extract().body().jsonPath().getString("token");
 
+        return getDefaultRequest().header("Authorization", "Bearer " + token);
+    }
 }

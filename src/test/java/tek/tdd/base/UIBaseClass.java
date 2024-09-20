@@ -49,7 +49,7 @@ public class UIBaseClass extends DatabaseUtility {
         }
         LOGGER.info("Running after each test and quite browser");
         quitBrowser();
-        closeDatabase();
+//        closeDatabase();
     }
 
     public void validCredentialSignIn() {

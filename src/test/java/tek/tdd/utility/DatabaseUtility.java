@@ -3,6 +3,10 @@ package tek.tdd.utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DatabaseUtility extends SeleniumUtility {
 
@@ -45,6 +49,33 @@ public class DatabaseUtility extends SeleniumUtility {
             }
         }
 
+    }
+
+    public List<Map<String,Object>> getResultFromQuery(String query){
+        LOGGER.debug("Executing Query {}" , query);
+        try {
+            ResultSet resultSet =  getConnection().createStatement().executeQuery(query);
+            ResultSetMetaData metaData = resultSet.getMetaData();
+
+            List<Map<String,Object>> data = new ArrayList<>();
+            while (resultSet.next()){
+                Map<String,Object> row = new HashMap<>();
+                for(int col =1; col<=metaData.getColumnCount(); col++){
+                    row.put(metaData.getColumnName(col),resultSet.getObject(col));
+                }
+                data.add(row);
+            }
+            LOGGER.debug("Query result {}", data);
+            return data;
+
+        }catch (SQLException ex){
+            throw new RuntimeException(ex);
+        }finally {
+            if(connection!=null){
+//                closeDatabase();
+            }
+
+        }
     }
 
 }
