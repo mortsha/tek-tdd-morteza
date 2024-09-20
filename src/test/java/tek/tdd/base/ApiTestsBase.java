@@ -67,4 +67,17 @@ public class ApiTestsBase extends BaseSetup {
         return ("Bearer ") + token.getToken();
     }
 
+    public String getTokenWithInputs(String username,String password){
+        TokenRequest request = new TokenRequest(username, password);
+
+        Response response = getDefaultRequest().body(request).when().post(EndPoints.POST_GENERATE_TOKEN.getValue())
+                .then().statusCode(200)
+                .extract().response();
+        LOGGER.info("Getting token with readOnly user " + response.prettyPrint());
+        extentInfo(response.asPrettyString());
+
+        TokenResponse token = response.body().jsonPath().getObject("", TokenResponse.class);
+        return ("Bearer ") + token.getToken();
+    }
+
 }
