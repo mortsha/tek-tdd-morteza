@@ -42,42 +42,22 @@ public class ApiTestsBase extends BaseSetup {
     }
 
     public String getTokenWithSupervisor() {
-        TokenRequest request = new TokenRequest("supervisor", "tek_supervisor");
-
-        Response response = getDefaultRequest().body(request).when().post(EndPoints.POST_GENERATE_TOKEN.getValue())
+        return ("Bearer ") + getDefaultRequest()
+                .body(new TokenRequest("supervisor", "tek_supervisor"))
+                .when()
+                .post(EndPoints.POST_GENERATE_TOKEN.getValue())
                 .then().statusCode(200)
-                .extract().response();
-        LOGGER.info("Getting token with supervisor user " + response.prettyPrint());
-        extentInfo(response.asPrettyString());
-
-        TokenResponse token = response.body().jsonPath().getObject("", TokenResponse.class);
-        return ("Bearer ") + token.getToken();
-    }
-
-    public String getTokenWithUserReadOnly(){
-        TokenRequest request = new TokenRequest("operator_readonly", "Tek4u2024");
-
-        Response response = getDefaultRequest().body(request).when().post(EndPoints.POST_GENERATE_TOKEN.getValue())
-                .then().statusCode(200)
-                .extract().response();
-        LOGGER.info("Getting token with readOnly user " + response.prettyPrint());
-        extentInfo(response.asPrettyString());
-
-        TokenResponse token = response.body().jsonPath().getObject("", TokenResponse.class);
-        return ("Bearer ") + token.getToken();
+                .extract().response().body().jsonPath().getObject("", TokenResponse.class).getToken();
     }
 
     public String getTokenWithInputs(String username,String password){
-        TokenRequest request = new TokenRequest(username, password);
-
-        Response response = getDefaultRequest().body(request).when().post(EndPoints.POST_GENERATE_TOKEN.getValue())
+        return ("Bearer ") + getDefaultRequest()
+                .body(new TokenRequest(username, password))
+                .when()
+                .post(EndPoints.POST_GENERATE_TOKEN.getValue())
                 .then().statusCode(200)
-                .extract().response();
-        LOGGER.info("Getting token with readOnly user " + response.prettyPrint());
-        extentInfo(response.asPrettyString());
+                .extract().response().body().jsonPath().getObject("", TokenResponse.class).getToken();
 
-        TokenResponse token = response.body().jsonPath().getObject("", TokenResponse.class);
-        return ("Bearer ") + token.getToken();
     }
 
 }
