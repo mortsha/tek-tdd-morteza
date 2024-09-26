@@ -32,7 +32,7 @@ public abstract class BaseSetup {
 
     public BaseSetup() {
         // Reading Config file and Loading to properties
-        String configFile = System.getProperty("user.dir") + "/src/test/resources/configs/dev-config.properties";
+        String configFile = getEnvConfig();
         try {
             LOGGER.debug("Reading config file from path {}", configFile);
             InputStream inputStream = new FileInputStream(configFile);
@@ -49,6 +49,14 @@ public abstract class BaseSetup {
             throw new RuntimeException("Config file error with message {} " + ioException.getMessage());
         }
 
+
+    }
+
+    private String getEnvConfig() {
+        String configFile = System.getProperty("user.dir") + "/src/test/resources/configs/{env}-config.properties";
+        String env = System.getProperty("env");
+        if (env == null) return configFile.replace("{env}", "dev");
+        return configFile.replace("{env}", env);
     }
 
     public void setupBrowser() {
